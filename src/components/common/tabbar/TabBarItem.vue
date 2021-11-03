@@ -8,53 +8,55 @@
 </template>
 
 <script>
-  export default {
-    name: "TabBarItem",
-    props: {
-      path: String,
-      activeColor: {
-        type: String,
-        default: 'red'
-      }
+export default {
+  name: 'TabBarItem',
+  props: {
+    path: String,
+    activeColor: {
+      type: String,
+      default: 'red'
+    }
+  },
+  data() {
+    return {}
+  },
+  computed: {
+    isActive() {
+      // /home -> item1(/home) = true
+      // /home -> item1(/category) = false
+      // /home -> item1(/cart) = true
+      // /home -> item1(/profile) = true
+      return this.$route.path.indexOf(this.path) !== -1
     },
-    data() {
-      return {
-        // isActive: true
-      }
-    },
-    computed: {
-      isActive() {
-        // /home -> item1(/home) = true
-        // /home -> item1(/category) = false
-        // /home -> item1(/cart) = true
-        // /home -> item1(/profile) = true
-        return this.$route.path.indexOf(this.path) !== -1
-      },
-      activeStyle() {
-        return this.isActive ? {color: this.activeColor} : {}
-      }
-    },
-    methods: {
-      itemClick() {
-        this.$router.replace(this.path)
-      }
+    activeStyle() {
+      return this.isActive ? { color: this.activeColor } : {}
+    }
+  },
+  methods: {
+    itemClick() {
+      this.$router.replace(this.path).catch(err => {
+        if (err) {
+          console.log()
+        }
+      })
     }
   }
+}
 </script>
 
 <style scoped>
-  .tab-bar-item {
-    flex: 1;
-    text-align: center;
-    height: 49px;
-    font-size: 14px;
-  }
+.tab-bar-item {
+  flex: 1;
+  text-align: center;
+  height: 49px;
+  font-size: 14px;
+}
 
-  .tab-bar-item img {
-    width: 24px;
-    height: 24px;
-    margin-top: 3px;
-    vertical-align: middle;
-    margin-bottom: 2px;
-  }
+.tab-bar-item img {
+  width: 24px;
+  height: 24px;
+  margin-top: 3px;
+  vertical-align: middle;
+  margin-bottom: 3px;
+}
 </style>

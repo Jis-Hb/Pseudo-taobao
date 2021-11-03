@@ -1,0 +1,107 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "101320",
+      "name": "退款",
+      "font_class": "tuikuan",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "269731",
+      "name": "淘宝众筹4期 爱心",
+      "font_class": "taobaozhongchou4qiaixin",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "269815",
+      "name": "淘宝众筹第四期  汽车",
+      "font_class": "taobaozhongchoudisiqiqiche",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "269817",
+      "name": "淘宝众筹第四期  钱包",
+      "font_class": "taobaozhongchoudisiqiqianbao",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "270034",
+      "name": "淘宝众筹4期 左右箭头",
+      "font_class": "taobaozhongchou4qizuoyoujiantou",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "1411519",
+      "name": "我的淘宝",
+      "font_class": "wodetaobao",
+      "unicode": "e6e1",
+      "unicode_decimal": 59105
+    },
+    {
+      "icon_id": "2105450",
+      "name": "淘宝购物车",
+      "font_class": "taobaogouwuche_ios",
+      "unicode": "e7d2",
+      "unicode_decimal": 59346
+    },
+    {
+      "icon_id": "5199426",
+      "name": "左箭头",
+      "font_class": "zuojiantou",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "6172053",
+      "name": "待评价",
+      "font_class": "daipingjia",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "14167314",
+      "name": "三点 ",
+      "font_class": "sandian",
+      "unicode": "e9b9",
+      "unicode_decimal": 59833
+    },
+    {
+      "icon_id": "14310941",
+      "name": "淘宝客服-01",
+      "font_class": "taobaokefu-01",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "14310942",
+      "name": "淘宝店铺",
+      "font_class": "taobaodianpu",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "25060907",
+      "name": "淘宝收藏",
+      "font_class": "taobaoshoucang",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "25060926",
+      "name": "淘宝店铺",
+      "font_class": "taobaodianpu1",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    }
+  ]
+}

@@ -1,82 +1,98 @@
 <template>
-  <div class="goods-item" @click="itemClick">
-    <img :src="goodsItem.show.img" alt="" @load="imageLoad">
-    <div class="goods-info">
-      <p>{{goodsItem.title}}</p>
-      <span class="price">{{goodsItem.price}}</span>
-      <span class="collect">{{goodsItem.cfav}}</span>
+  <div class="box">
+    <div class="goodsitem" @click="itemClick">
+      <div class="images">
+        <img :src="showImage" alt="" @load="imageLoad" />
+      </div>
+
+      <div class="goodsitemcount">
+        <p>{{ goodsItem.title }}</p>
+        <span class="price">${{ goodsItem.price }}</span>
+        <span class="collect"><span>♥</span>{{ goodsItem.cfav }}</span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: "GoodsListItem",
-    props: {
-      goodsItem: {
-        type: Object,
-        default() {
-          return {}
-        }
+export default {
+  name: 'GoodsListItem',
+  props: {
+    goodsItem: {
+      type: Object,
+      default() {
+        return {}
       }
+    }
+  },
+  computed: {
+    showImage() {
+      return this.goodsItem.image || this.goodsItem.show.img
+    }
+  },
+  methods: {
+    imageLoad() {
+      this.$bus.$emit('itemImageLoad')
+
+      // if (this.$route.path.indexOf('/home')) {
+      //   this.$bus.$emit('homeitemImageLoad')
+      // } else if (this.$route.path.indexOf('/detail')) {
+      //   this.$bus.$emit('datailitemImageLoad')
+      // }
+      // console.log(this.$bus)
     },
-    methods: {
-      imageLoad() {
-        this.$bus.$emit('itemImageLoad')
-      },
-      itemClick() {
+    itemClick() {
+      if (this.goodsItem.iid) {
         this.$router.push('/detail/' + this.goodsItem.iid)
+      } else {
+        this.$router.push('/detail/' + this.goodsItem.item_id)
       }
     }
   }
+}
 </script>
 
-<style scoped>
-  .goods-item {
-    padding-bottom: 40px;
-    position: relative;
+<style lang="less">
+.box {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  width: 47%;
 
-    width: 48%;
-  }
+  .goodsitem {
+    height: 15.666667rem;
+    .images {
+      height: 12.866667rem;
+      margin-bottom: 10px;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+      }
+    }
 
-  .goods-item img {
-    width: 100%;
-    border-radius: 5px;
+    .goodsitemcount {
+      font-size: 13px;
+      text-align: center;
+      p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 3px;
+      }
+      .price {
+        color: red;
+        padding: 0 10px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .collect {
+        color: rgb(42, 9, 133);
+        span {
+          font-size: 17px;
+          color: rgb(209, 51, 51);
+        }
+      }
+    }
   }
-
-  .goods-info {
-    font-size: 12px;
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .goods-info p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-bottom: 3px;
-  }
-
-  .goods-info .price {
-    color: var(--color-high-text);
-    margin-right: 20px;
-  }
-
-  .goods-info .collect {
-    position: relative;
-  }
-
-  .goods-info .collect::before {
-    content: '';
-    position: absolute;
-    left: -15px;
-    top: -1px;
-    width: 14px;
-    height: 14px;
-    background: url("~assets/img/common/collect.svg") 0 0/14px 14px;
-  }
+}
 </style>

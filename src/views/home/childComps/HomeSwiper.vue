@@ -1,46 +1,57 @@
 <template>
-  <swiper>
-    <swiper-item v-for="item in banners">
+  <Swiper class="Swiper" v-if="banners.length > 1">
+    <Swiper-Item class="Swpier-item" v-for="item in banners" :key="item.id">
       <a :href="item.link">
-        <img :src="item.image" alt="" @load="imageLoad">
+        <img class="Swiper-img" :src="item.image" alt="" @load="imageLoad" />
       </a>
-    </swiper-item>
-  </swiper>
+    </Swiper-Item>
+  </Swiper>
 </template>
 
 <script>
-  import {Swiper, SwiperItem} from 'components/common/swiper'
+import { Swiper, SwiperItem } from 'components/common/swiper/index.js'
 
-  export default {
-    name: "HomeSwiper",
-    props: {
-      banners: {
-        type: Array,
-        default() {
-          return []
-        }
-      }
-    },
-    data() {
-      return {
-        isLoad: false
-      }
-    },
-    components: {
-      Swiper,
-      SwiperItem
-    },
-    methods: {
-      imageLoad() {
-        if (!this.isLoad) {
-          this.$emit('swiperImageLoad')
-          this.isLoad = true
-        }
+export default {
+  name: 'HomeSwiper',
+  props: {
+    banners: {
+      type: Array,
+      default() {
+        return []
       }
     }
+  },
+  components: {
+    Swiper,
+    SwiperItem
+  },
+  methods: {
+    imageLoad() {
+      if (!this.isLoad) {
+        this.$emit('SwiperImageLoad')
+        this.isLoad = true
+      }
+    }
+  },
+  data() {
+    return {
+      isLoad: false
+    }
   }
+}
 </script>
 
-<style scoped>
+<style lang="less">
+.Swiper {
+  height: 170px;
+  .Swpier-item {
+    height: 170px;
+    border-radius: 15px;
 
+    .Swiper-img {
+      height: 170px;
+      border-radius: 15px;
+    }
+  }
+}
 </style>
