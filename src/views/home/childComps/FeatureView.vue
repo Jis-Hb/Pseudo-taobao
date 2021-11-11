@@ -91,7 +91,7 @@ export default {
   }
   .min1-box {
     width: 48%;
-
+    margin-left: 2px;
     background-color: blue;
     height: 130px;
     margin-bottom: 10px;
@@ -106,11 +106,11 @@ export default {
   }
   .min2-box {
     width: 50%;
+    margin-left: 1px;
 
     background-color: blue;
     height: 130px;
-    float: left;
-
+    float: right;
     border-radius: 10px;
     img {
       width: 100%;
@@ -119,11 +119,11 @@ export default {
     }
   }
   .min3-box {
-    margin-left: 5px;
+    margin-right: 5px;
     width: 48%;
     background-color: blue;
     height: 130px;
-    float: left;
+    float: right;
     border-radius: 10px;
     img {
       width: 100%;

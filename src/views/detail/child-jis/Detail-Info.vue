@@ -121,7 +121,7 @@ export default {
       font-size: 12px;
       overflow: hidden;
       border-top: #eee 1px solid;
-      padding: 0 15px;
+      padding: 0 10px;
       position: relative;
       .b1 {
         float: left;
@@ -146,7 +146,9 @@ export default {
         display: flex;
         span {
           flex: 1;
-          padding-left: 20px;
+          padding: 0 13px;
+          text-align: center;
+          padding-left: 10px;
           line-height: 40px;
           color: #252525;
           img {
@@ -158,7 +160,7 @@ export default {
     }
     .tow-three {
       height: 40px;
-      padding: 0 15px;
+      padding: 0 10px;
       position: relative;
       .three-b1 {
         float: left;
@@ -169,7 +171,7 @@ export default {
       }
       .pinpai {
         line-height: 40px;
-        padding-left: 20px;
+        padding-left: 30px;
         font-size: 13px;
         color: #252525;
       }

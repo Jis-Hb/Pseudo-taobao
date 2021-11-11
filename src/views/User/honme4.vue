@@ -76,7 +76,10 @@
     </div>
     <div class="boom2-box">
       <van-panel title="信息" desc="炸毛小焦" status="欢迎" class="vantput">
-        <div class="vant-1">欢迎访问炸毛小焦</div>
+        <div class="vant-1">
+          欢迎访问炸毛小焦
+          <p class="info"><span>注意:</span>刷新需要重新登入</p>
+        </div>
       </van-panel>
       <van-cell title="退出登入" size="large" class="tuichu">
         <van-button class="tuichubtn" @click="remove">退出</van-button>
@@ -318,15 +321,15 @@ body {
         .xbox-logo {
           position: absolute;
           top: -3px;
-          right: 8px;
-          width: 23px;
-          height: 23px;
+          right: 9px;
+          width: 18px;
+          height: 18px;
           border-radius: 50%;
           border: 2px solid #dc7a4b;
           span {
             text-align: center;
             position: absolute;
-            top: -10px;
+            top: -11px;
             right: 1px;
             color: #dc7a4b;
           }
@@ -360,6 +363,13 @@ body {
       height: 150px;
       .vant-1 {
         padding: 20px 15px 15px 15px;
+        .info {
+          margin-top: 5px;
+          span {
+            color: #f10a87;
+            font-weight: 500;
+          }
+        }
       }
     }
     .tuichu {

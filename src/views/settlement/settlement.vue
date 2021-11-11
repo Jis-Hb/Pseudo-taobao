@@ -9,8 +9,10 @@
 
       <div @click="shouhuodizhi" class="dingdan" v-if="this.$store.state.dingdan.id !== undefined">
         <img src="~assets/img/shouhuo.jpg" alt="" />
-        <span class="shouhuo-p">{{ $store.state.dingdan.name }}</span>
-        <span class="dingdan-tel"> {{ $store.state.dingdan.tel }}</span>
+        <div class="infos">
+          <span class="shouhuo-p">{{ $store.state.dingdan.name }}</span>
+          <span class="dingdan-tel"> {{ $store.state.dingdan.tel }}</span>
+        </div>
         <span class="dingdan-address">{{ $store.state.dingdan.address }}</span>
       </div>
       <div class="content" v-for="(item, index) in $store.state.submitList" :key="index">
@@ -106,7 +108,6 @@ export default {
       }
       .shouhuo-p {
         float: left;
-        width: 280px;
         line-height: 50px;
         margin-left: 30px;
       }
@@ -128,19 +129,22 @@ export default {
         position: absolute;
         margin-top: 15px;
       }
-      .shouhuo-p {
-        position: absolute;
-        left: 70px;
-        top: 20px;
-        color: #303030;
-        font-weight: 600;
+
+      .infos {
+        margin-top: 10px;
+        display: flex;
+        height: 20px;
+        padding-left: 65px;
+        .shouhuo-p {
+          color: #303030;
+          font-weight: 600;
+        }
+        .dingdan-tel {
+          margin-left: 20px;
+          color: #959595;
+        }
       }
-      .dingdan-tel {
-        position: absolute;
-        left: 150px;
-        top: 20px;
-        color: #959595;
-      }
+
       .dingdan-address {
         position: absolute;
         top: 50px;
@@ -167,14 +171,14 @@ export default {
         height: 110px;
         padding: 0 10px;
         .login-images {
-          width: 100px;
-          height: 110px;
+          width: 90px;
+          height: 100px;
           border-radius: 10px;
         }
         .login-p {
           position: absolute;
-          width: 180px;
-          height: 35px;
+          width: 170px;
+          height: 34px;
           top: 0px;
           right: 40px;
           overflow: hidden;
@@ -196,8 +200,8 @@ export default {
         }
         .login-desc {
           position: absolute;
-          width: 150px;
-          height: 25px;
+          width: 130px;
+          height: 24px;
           top: 40px;
           right: 70px;
           overflow: hidden;

@@ -125,14 +125,14 @@ export default {
     },
     // 网络请求相关的方法
     getHomeMultidata() {
-      getHomeMultidata().then((res) => {
+      getHomeMultidata().then(res => {
         this.banners = res.data.data.banner.list
         this.recommend = res.data.data.recommend.list
       })
     },
     getHomeGoods(type) {
       const page = this.goods[type].page + 1
-      getHomeGoods(type, page).then((res) => {
+      getHomeGoods(type, page).then(res => {
         // console.log(res)
         // res => pop 前30 page：
         this.goods[type].list.push(...res.data.data.list)

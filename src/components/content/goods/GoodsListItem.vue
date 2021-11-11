@@ -2,7 +2,7 @@
   <div class="box">
     <div class="goodsitem" @click="itemClick">
       <div class="images">
-        <img :src="showImage" alt="" @load="imageLoad" />
+        <img v-lazy="showImage" alt="" @load="imageLoad" />
       </div>
 
       <div class="goodsitemcount">

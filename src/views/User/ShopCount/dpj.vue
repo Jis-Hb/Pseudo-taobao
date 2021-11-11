@@ -22,8 +22,8 @@
             <div class="desc-right">x{{ item.count }}</div>
           </div>
           <div class="all-price">
-            <p class="price-left">总价￥{{ item.price }}</p>
-            <p class="price-right">实付款￥{{ item.price }}</p>
+            <span class="price-left">总价￥{{ item.price }}</span>
+            <span class="price-right">实付款￥{{ item.price }}</span>
           </div>
         </div>
         <div class="bottom">
@@ -42,17 +42,14 @@ export default {}
 
 <style lang="less">
 .All-content {
-  margin-top: 0px;
+  margin-top: 10px;
   padding: 10px;
-  .dpj-content {
-    margin-top: 50px;
-    text-align: center;
-  }
+
   .All-box {
     background-color: #fff;
     border-radius: 15px;
     padding: 0 10px;
-    padding-bottom: 60px;
+    padding-bottom: 10px;
     .name {
       height: 40px;
       line-height: 40px;
@@ -83,12 +80,12 @@ export default {}
       }
     }
     .center {
-      height: 150px;
       padding: 10px;
+
       .left {
         float: left;
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
         margin-top: 5px;
         img {
           width: 100%;
@@ -99,7 +96,6 @@ export default {}
       .right {
         float: right;
         width: 210px;
-        height: 100%;
         padding: 10px 0;
         .title {
           .title-left {
@@ -123,7 +119,7 @@ export default {}
           .desc-left {
             margin-top: 10px;
             float: left;
-            width: 170px;
+            width: 140px;
             overflow: hidden;
             height: 20px;
             line-height: 20px;
@@ -140,21 +136,21 @@ export default {}
           }
         }
         .all-price {
+          height: 30px;
           margin-top: 70px;
-          line-height: 60px;
-          height: 50px;
-          margin-left: 0px;
-          width: 100%;
+          margin-left: 30px;
           .price-left {
             float: left;
-            height: 100%;
+            margin-left: 10px;
             color: #939393;
             font-weight: 700;
+            line-height: 30px;
           }
           .price-right {
             float: left;
-            height: 100%;
-            margin-left: 10px;
+            line-height: 30px;
+
+            margin-left: 30px;
             color: #070707;
             font-weight: 700;
           }
@@ -162,17 +158,17 @@ export default {}
       }
     }
     .bottom {
-      margin-top: 140px;
+      margin-top: 130px;
       width: 100%;
-      line-height: 40px;
-      height: 40px;
+      line-height: 30px;
+      height: 30px;
       .span1 {
         float: left;
         color: #9c9c9c;
       }
       .span3 {
         float: left;
-        margin-left: 110px;
+        margin-left: 90px;
         padding: 0 10px;
         text-align: center;
         color: #070707;
