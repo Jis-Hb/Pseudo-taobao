@@ -1,4 +1,5 @@
-# supermall
+# Pseudo-taobao
+
 
 # 账号密码
 注册并登入即可
