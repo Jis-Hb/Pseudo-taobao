@@ -59,9 +59,9 @@ export default {
   width: 47%;
 
   .goodsitem {
-    height: 15.666667rem;
+    height: 18.666667rem;
     .images {
-      height: 12.866667rem;
+      height: 15.866667rem;
       margin-bottom: 10px;
       img {
         width: 100%;

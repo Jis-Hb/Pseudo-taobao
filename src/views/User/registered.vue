@@ -4,14 +4,14 @@
     <div class="button">
       <van-form @submit="onSubmit">
         <van-field
-          v-model="username"
+          v-model="users.username"
           name="name"
           label="用户名"
           placeholder="用户名"
           :rules="[{ required: true, message: '请填写用户名' }]"
         />
         <van-field
-          v-model="password"
+          v-model="users.password"
           type="password"
           name="passworld"
           label="密码"
@@ -30,28 +30,43 @@
 </template>
 
 <script>
+import { registered } from '../../network/login'
+
 export default {
   name: 'login',
   data() {
     return {
-      username: '',
-      password: '',
+      users: {
+        username: '',
+        password: ''
+      },
+
       show: false
     }
   },
   methods: {
-    onSubmit(values) {
-      // this.$notify('注册成功')
-      this.$dialog
-        .alert({
-          title: '炸毛小焦', // 加上标题
-          message: '注册成功' // 改变弹出框的内容
-        })
-        .then(() => {
-          // 点击确认按钮后的调用
-          console.log('点击了确认按钮噢')
-          this.$router.push('/login')
-        })
+    async onSubmit(values) {
+      registered(this.users.username, this.users.password).then(win => {
+        const res = win.data
+        console.log(res)
+        if (res.meta.status !== 201) {
+          return this.$dialog.alert({
+            title: '注册失败', // 加上标题
+            message: '用户名已存在' // 改变弹出框的内容
+          })
+        }
+        this.$notify('注册成功')
+        this.$dialog
+          .alert({
+            title: '炸毛小焦', // 加上标题
+            message: '注册成功' // 改变弹出框的内容
+          })
+          .then(() => {
+            // 点击确认按钮后的调用
+            console.log('点击了确认按钮噢')
+            this.$router.push('/login')
+          })
+      })
     }
   }
 }
@@ -64,7 +79,6 @@ body {
 
 .new-Life {
   .top {
-    position: relative;
     text-align: center;
     line-height: 230px;
     height: 230px;
@@ -72,12 +86,9 @@ body {
     font-size: 35px;
     background-color: #1d82fe;
     border-radius: 0 0px 25px 25px;
-    z-index: 66;
   }
   .button {
-    position: absolute;
-    padding: 60px 20px 0 20px;
-
+    padding: 10px 20px;
     width: 100%;
     bottom: 70px;
     height: 420px;

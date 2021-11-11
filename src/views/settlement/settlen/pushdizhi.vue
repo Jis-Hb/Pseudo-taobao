@@ -75,17 +75,18 @@ export default {
 
 <style lang="less" scoped>
 .btn {
-  position: absolute;
-  bottom: 55px;
+  position: fixed;
+  bottom: 50px;
   width: 100%;
-  height: 45px;
+  height: 50px;
   background-color: #fff;
   .btn1 {
     margin-left: 20px;
     width: 90%;
     margin-top: 4px;
-    border-radius: 17px;
-    background-color: #f9f9f9;
+    border-radius: 25px;
+    background-color: #ee0a24;
+    color: #fff;
   }
 }
 </style>

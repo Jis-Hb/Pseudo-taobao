@@ -8,7 +8,7 @@
         />
       </div>
       <div class="box-right">
-        <span class="login-name">单纯仔里sns</span>
+        <span class="login-name">{{ username }}</span>
         <p class="login-text">点这里可以添加个性签名。</p>
         <span class="login-guanzu"><span>0</span> 关注</span>
         <span class="login-fensi"><span>0</span> 粉丝</span>
@@ -17,8 +17,8 @@
     <div class="center-info">
       <div class="info-top">
         <span class="info-top-sc">收藏<span>0</span></span>
-        <span class="info-top-dy">订阅店铺<span>153</span></span>
-        <span class="info-top-zj">足迹<span>173</span></span>
+        <span class="info-top-dy">订阅店铺<span>0</span></span>
+        <span class="info-top-zj">足迹<span>0</span></span>
       </div>
       <div class="info-center" @click="moveShop">
         <div class="info-test">
@@ -105,8 +105,14 @@ export default {
       shouhuo: 0,
       pingjia: 0,
       tuikuan: 0,
-      show: false
+      show: false,
+      username: ''
     }
+  },
+  created() {
+    this.$bus.$on('getUserName', item => {
+      this.username = item
+    })
   },
   components: {},
   activated() {
@@ -217,62 +223,57 @@ body {
         font-family: 'iconfont';
         content: '';
         margin-right: 10px;
+        margin-left: 5px;
       }
       .info-top-dy::before {
         font-family: 'iconfont';
         content: '';
         margin-right: 5px;
+        margin-left: 5px;
       }
       .info-top-zj::before {
         font-family: 'iconfont';
         content: '';
-
         margin-right: 10px;
+        margin-left: 5px;
       }
       .info-top-sc {
+        display: flex;
         flex: 1;
-        height: 100%;
         color: #080808;
         font-weight: 600;
         span {
-          margin-left: 10px;
-          width: 30px;
-          display: inline-block;
-          line-height: 35px;
-          height: 35px;
-          padding-right: 40px;
+          flex: 1;
+          padding: 0 10px;
           color: #6a6a6a;
           font-weight: 300;
           border-right: 1px solid #f6f6f6;
         }
       }
       .info-top-dy {
-        flex: 1;
-        height: 100%;
+        flex: 1.3;
         color: #080808;
         font-weight: 600;
+        display: flex;
         span {
-          width: 40px;
-          display: inline-block;
-          line-height: 35px;
-          height: 35px;
+          flex: 1;
+          align-items: center;
           color: #6a6a6a;
           font-weight: 300;
-          padding-right: 10px;
-          padding-left: 5px;
           border-right: 1px solid #f6f6f6;
         }
       }
       .info-top-zj {
+        display: flex;
         width: 30%;
-        height: 100%;
+        margin-left: 10px;
         color: #080808;
         font-weight: 600;
 
         span {
+          flex: 1;
           color: #6a6a6a;
           font-weight: 300;
-          margin-left: 10px;
           width: 30px;
         }
       }

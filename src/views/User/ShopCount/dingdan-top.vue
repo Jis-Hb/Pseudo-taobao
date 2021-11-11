@@ -3,7 +3,13 @@
     <div class="TopNav">
       <div class="left" @click="back"></div>
       <div class="center">
-        <input class="center-input" placeholder="搜索全部订单" type="text" />
+        <input
+          @focus="input"
+          ref="input"
+          class="center-input"
+          placeholder="搜索全部订单"
+          type="text"
+        />
       </div>
       <div class="right"></div>
     </div>
@@ -16,6 +22,9 @@ export default {
   methods: {
     back() {
       this.$router.push('/my')
+    },
+    input() {
+      this.$refs.input.style.color = 'black'
     }
   }
 }

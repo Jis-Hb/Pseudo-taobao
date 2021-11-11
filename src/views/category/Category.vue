@@ -3,70 +3,64 @@
     <NavBar class="Cate-Top">
       <div slot="center">商品分类</div>
     </NavBar>
-    <scroll class="left">
-      <van-sidebar @change="onChange" v-model="activeKey" class="item-color">
-        <van-sidebar-item title="正在流行" />
-        <van-sidebar-item title="裤子" />
-        <van-sidebar-item title="裙子" />
-        <van-sidebar-item title="内衣" />
-        <van-sidebar-item title="女鞋" />
-        <van-sidebar-item title="男友" />
-        <van-sidebar-item title="包包" />
-        <van-sidebar-item title="运动" />
-        <van-sidebar-item title="配饰" />
-        <van-sidebar-item title="运动" />
-        <van-sidebar-item title="美妆" />
-        <van-sidebar-item title="个性" />
-        <van-sidebar-item title="安居" />
-      </van-sidebar>
-    </scroll>
-    <scroll class="right">
-      <Goods class="right-box" :goods="showGoods"></Goods>
-    </scroll>
+
+    <CateLeft @selectItem="selectItem" class="left-content" :LeftName="LeftName"></CateLeft>
+    <CateItem class="right-content" :subcategories="showSubcategory"></CateItem>
   </div>
 </template>
 
 <script>
-import scroll from 'components/common/scroll/Scroll'
 import NavBar from 'components/common/navbar/NavBar'
-import Goods from 'components/content/goods/GoodsList.vue'
-import { getHomeGoods } from 'network/home'
+import CateLeft from './Cate/CateLeft.vue'
+import CateItem from './Cate/CateItem.vue'
+import { CateLeftList, getSubcategory } from '../../network/category.js'
+
 export default {
   name: 'Category',
   data() {
     return {
-      activeKey: 0,
-      goods: {
-        pop: { list: [] }
-      },
-      currentType: 'pop',
-      currentpage: 1
+      LeftName: [],
+      RightItemList: [],
+      currentIndex: -1
     }
   },
   components: {
     NavBar,
-    scroll,
-    Goods
+    CateLeft,
+    CateItem
+  },
+  created() {
+    this.CateLeftList()
   },
   computed: {
-    showGoods() {
-      return this.goods[this.currentType].list
+    showSubcategory() {
+      if (this.currentIndex === -1) return {}
+      return this.RightItemList[this.currentIndex].subcategories
     }
   },
-  mounted() {},
-  created() {
-    this.getHomeGoods(this.currentType, this.currentpage)
-  },
   methods: {
-    onChange(index) {
-      this.currentpage = index + 1
-      this.getHomeGoods(this.currentType, this.currentpage)
-    },
-    getHomeGoods(type, page) {
-      getHomeGoods(type, page).then((res) => {
-        // console.log(res)
-        this.goods[this.currentType].list = res.data.data.list
+    CateLeftList() {
+      CateLeftList().then(res => {
+        this.LeftName = res.data.data.category.list
+        for (let i = 0; i < this.LeftName.length; i++) {
+          this.RightItemList[i] = {
+            subcategories: {}
+          }
+        }
+        this.getSubcategory(0)
       })
+    },
+    getSubcategory(index) {
+      this.currentIndex = index
+      const mailKey = this.LeftName[index].maitKey
+      getSubcategory(mailKey).then(res => {
+        this.RightItemList[index].subcategories = res.data.data
+        this.RightItemList = { ...this.RightItemList }
+        console.log(this.RightItemList)
+      })
+    },
+    selectItem(index) {
+      this.getSubcategory(index)
     }
   }
 }
@@ -74,6 +68,9 @@ export default {
 
 <style lang="less" scoped>
 .Cate-content {
+  display: flex;
+  background-color: #fff;
+
   .Cate-Top {
     background-color: #fff;
     color: #000000;
@@ -83,25 +80,14 @@ export default {
     width: 100%;
     border-bottom: 1px solid rgba(204, 204, 204, 0.157);
   }
-  .right {
-    position: absolute;
-    top: 44px;
-    bottom: 49px;
-    right: 0;
-    width: 75%;
-    background-color: #fff;
-    .right-box {
-    }
-  }
-  .left {
-    position: absolute;
-    top: 44px;
-    bottom: 49px;
-    left: 0;
-    width: 25%;
-    .item-color {
-      width: 100%;
-    }
-  }
+}
+.right-content {
+  margin-top: 43px;
+  overflow: scroll;
+  height: 86vh;
+  flex: 1;
+}
+.felt-content {
+  flex: 1;
 }
 </style>
