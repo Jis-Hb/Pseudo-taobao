@@ -5,6 +5,7 @@ export function postLoginUser(username, password) {
     username,
     password
   })
+
   return requestLogin({
     method: 'post',
     url: '/login',
