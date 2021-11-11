@@ -109,13 +109,13 @@ export default {
       username: ''
     }
   },
-  created() {
+  created() {},
+  components: {},
+  activated() {
+    console.log(111)
     this.$bus.$on('getUserName', item => {
       this.username = item
     })
-  },
-  components: {},
-  activated() {
     if (this.$store.state.shopObj.pingjia) {
       this.pingjia = this.$store.state.shopObj.pingjia
     }
