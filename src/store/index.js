@@ -9,7 +9,8 @@ export default new Vuex.Store({
     submitList: [],
     dingdan: [],
     gouwuCount: 0,
-    shopObj: {}
+    shopObj: {},
+    username: ''
   },
   mutations: {
     addCart(state, payload) {
@@ -41,9 +42,12 @@ export default new Vuex.Store({
     addDingdan(state, payload) {
       state.dingdan = payload
     },
-    gouwu(state, payload) {},
+    gouwu(state, payload) { },
     shopObj(state, payload) {
       state.shopObj = payload
+    },
+    username(state, payload) {
+      state.username = payload
     }
   },
   actions: {},

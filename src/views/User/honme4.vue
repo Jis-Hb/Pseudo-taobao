@@ -8,7 +8,7 @@
         />
       </div>
       <div class="box-right">
-        <span class="login-name">{{ username }}</span>
+        <span class="login-name">{{ $store.state.username }}</span>
         <p class="login-text">点这里可以添加个性签名。</p>
         <span class="login-guanzu"><span>0</span> 关注</span>
         <span class="login-fensi"><span>0</span> 粉丝</span>
@@ -109,7 +109,12 @@ export default {
       username: ''
     }
   },
-  created() {},
+  created() {
+    console.log(111222)
+    this.$bus.$on('getUserName', item => {
+      this.username = item
+    })
+  },
   components: {},
   activated() {
     console.log(111)

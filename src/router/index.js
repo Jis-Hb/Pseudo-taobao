@@ -22,7 +22,9 @@ const routes = [
   { path: '/', redirect: '/login' },
   { path: '/dingdan', redirect: '/dingdan/all' },
 
-  { path: '/home', component: home },
+  {
+    path: '/home', component: home
+  },
   { path: '/category', component: category },
   { path: '/cart', component: Shop },
   { path: '/my', component: home4 },
