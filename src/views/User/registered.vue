@@ -23,6 +23,7 @@
             >注册
             <van-dialog v-model="show" title="标题" message="注册成功"> </van-dialog>
           </van-button>
+          <van-button round block @click.prevent="black">返回</van-button>
         </div>
       </van-form>
     </div>
@@ -67,6 +68,10 @@ export default {
             this.$router.push('/login')
           })
       })
+    },
+
+    black() {
+      this.$router.go(-1)
     }
   }
 }
@@ -94,13 +99,13 @@ body {
     height: 420px;
     background-color: #f1f1f1;
     .van-cell {
-      margin-top: 25px;
+      margin-top: 15px;
       line-height: 25px;
       font-size: 17px;
       border-radius: 25px;
     }
     .van-button--block {
-      margin-top: 30px;
+      margin-top: 10px;
     }
   }
 }

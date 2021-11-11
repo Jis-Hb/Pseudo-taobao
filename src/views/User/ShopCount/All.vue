@@ -44,6 +44,7 @@ export default {}
 .All-content {
   margin-top: 10px;
   padding: 10px;
+  text-align: center;
 
   .All-box {
     background-color: #fff;

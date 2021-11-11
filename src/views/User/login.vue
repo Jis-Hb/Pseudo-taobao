@@ -110,24 +110,24 @@ body {
     height: 420px;
     .ali {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 20px;
       font-size: 13px;
       color: #c8c9cc;
     }
     .ali1 {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 10px;
       font-size: 13px;
       color: #c8c9cc;
     }
     .van-cell {
-      margin-top: 25px;
+      margin-top: 20px;
       line-height: 25px;
       font-size: 17px;
       border-radius: 25px;
     }
     .van-button--block {
-      margin-top: 30px;
+      margin-top: 10px;
     }
   }
 }

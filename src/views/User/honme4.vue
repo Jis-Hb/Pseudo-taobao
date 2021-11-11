@@ -373,7 +373,7 @@ body {
       }
     }
     .tuichu {
-      margin-top: 25px;
+      margin-top: 15px;
       border-radius: 15px;
       .tuichubtn {
         border-radius: 15px;
