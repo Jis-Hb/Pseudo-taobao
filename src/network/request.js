@@ -19,3 +19,10 @@ export function requestLogin(config) {
   // 3·发送真正的网络请求
   return instance(config)
 }
+export function localhostInfo(config) {
+  const instance = axios.create({
+    baseURL: 'http://127.0.0.1:3001/api/',
+    timeout: 5000
+  })
+  return instance(config)
+}

@@ -56,15 +56,17 @@ export default {
       postLoginUser(this.users.usernames, this.users.passwords).then(res => {
         if (res.data.meta.status === 201) {
           localStorage.setItem('token', res.data.data.token)
+          localStorage.setItem('username', res.data.data.username)
+          localStorage.setItem('info', res.data.data.info)
+          localStorage.setItem('name', res.data.data.name)
+          console.log(res)
           this.$dialog
             .alert({
               title: '登入成功', // 加上标题
               message: `欢迎${res.data.data.username}用户访问` // 改变弹出框的内容
             })
             .then(() => {
-              this.$bus.$emit('getUserName', res.data.data.username)
-              this.$store.commit('username', res.data.data.username)
-
+              // this.$store.commit('username', res.data.data.username)
               // 点击确认按钮后的调用
               this.$router.push('/my')
             })

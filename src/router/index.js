@@ -19,7 +19,7 @@ import dpj from 'views/User/ShopCount/dpj.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', redirect: '/login' },
+  { path: '/', redirect: '/my' },
   { path: '/dingdan', redirect: '/dingdan/all' },
 
   {

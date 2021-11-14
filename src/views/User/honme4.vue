@@ -8,8 +8,8 @@
         />
       </div>
       <div class="box-right">
-        <span class="login-name">{{ $store.state.username }}</span>
-        <p class="login-text">点这里可以添加个性签名。</p>
+        <span class="login-name" @click="getNameClick">{{ Name }}</span>
+        <p class="login-text" @click="offf">{{ Info }}</p>
         <span class="login-guanzu"><span>0</span> 关注</span>
         <span class="login-fensi"><span>0</span> 粉丝</span>
       </div>
@@ -78,27 +78,50 @@
       <van-panel title="信息" desc="炸毛小焦" status="欢迎" class="vantput">
         <div class="vant-1">
           欢迎访问炸毛小焦
-          <p class="info"><span>注意:</span>刷新需要重新登入</p>
+          <p class="info"><span>注意:</span>已支持修改名称,个性签名</p>
         </div>
       </van-panel>
       <van-cell title="退出登入" size="large" class="tuichu">
         <van-button class="tuichubtn" @click="remove">退出</van-button>
       </van-cell>
     </div>
+
+    <!-- 个性签名弹出层 -->
+    <van-popup v-model="infoshow" position="top" :style="{ height: '30%' }">
+      <info @InfoOver="InfoOver"></info>
+    </van-popup>
+    <van-popup v-model="getName" position="top" :style="{ height: '30%' }">
+      <Name @NameOver="NameOver"></Name>
+    </van-popup>
   </div>
 </template>
 
 <script>
+import info from './ShopCount/info.vue'
+import Name from './ShopCount/Name.vue'
 export default {
   name: 'haonme4',
   methods: {
     remove() {
       this.$router.push('/login')
-
       localStorage.removeItem('token')
     },
     moveShop() {
       this.$router.push('/dingdan')
+    },
+    offf() {
+      this.infoshow = true
+    },
+    InfoOver(value) {
+      this.infoshow = false
+      this.Info = value
+    },
+    getNameClick() {
+      this.getName = true
+    },
+    NameOver(value) {
+      this.getName = false
+      this.Name = value
     }
   },
   data() {
@@ -109,21 +132,25 @@ export default {
       pingjia: 0,
       tuikuan: 0,
       show: false,
-      username: ''
+      username: '',
+      Info: '',
+      infoshow: false,
+      getName: false,
+      Name: ''
     }
   },
-  created() {
-    console.log(111222)
-    this.$bus.$on('getUserName', item => {
-      this.username = item
-    })
+  created() {},
+  components: {
+    info,
+    Name
   },
-  components: {},
   activated() {
-    console.log(111)
-    this.$bus.$on('getUserName', item => {
-      this.username = item
-    })
+    const token = localStorage.getItem('token')
+    if (token) {
+      this.username = localStorage.getItem('username')
+      this.Info = localStorage.getItem('info')
+      this.Name = localStorage.getItem('name')
+    }
     if (this.$store.state.shopObj.pingjia) {
       this.pingjia = this.$store.state.shopObj.pingjia
     }
@@ -166,48 +193,48 @@ body {
     }
     .box-right {
       float: left;
-      position: relative;
-      width: 70%;
       height: 100%;
-      padding: 35px 0px 35px 0px;
+      width: 70%;
+      padding: 35px 0px 35px 35px;
       .login-name {
         color: #080808;
-        position: absolute;
-        top: 40px;
-        left: 20px;
         font-weight: 700;
+        margin-bottom: 5vw;
       }
+      .login-name::after {
+        font-family: 'iconfont';
+        content: '';
+        font-size: 13px;
+        margin-left: 15px;
+        color: #080808;
+      }
+
       .login-text {
-        position: absolute;
-        top: 80px;
-        left: 20px;
-        width: 250px;
+        margin: 5vw 0;
+
         color: #9f9f9f;
         font-size: 13px;
       }
+
       .login-text::after {
         font-family: 'iconfont';
         content: '';
-        margin-left: 70px;
+        margin-left: 15px;
+        color: #080808;
       }
       .login-guanzu {
-        position: absolute;
-        bottom: 50px;
-        left: 20px;
         border-right: 1px solid #9f9f9f;
-        padding-right: 5px;
         font-size: 15px;
         color: #9f9f9f;
+        padding-right: 3vw;
         span {
           color: #080808;
         }
       }
       .login-fensi {
-        position: absolute;
-        bottom: 50px;
-        left: 85px;
         font-size: 15px;
         color: #9f9f9f;
+        margin-left: 3vw;
 
         span {
           color: #080808;

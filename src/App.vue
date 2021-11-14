@@ -25,10 +25,10 @@ export default {
     }
   },
   mounted() {
-    window.onload = () => {
-      this.$router.push('/login')
-      localStorage.removeItem('token')
-    }
+    // window.onload = () => {
+    //   this.$router.push('/login')
+    //   localStorage.removeItem('token')
+    // }
   },
   beforeRouteUpdate(to, from, next) {
     // 如果isBack为true时，证明是用户点击了回退，执行slide-right动画

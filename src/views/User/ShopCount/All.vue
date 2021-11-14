@@ -23,7 +23,7 @@
           </div>
           <div class="all-price">
             <span class="price-left">总价￥{{ item.price }}</span>
-            <span class="price-right">实付款￥{{ item.price }}</span>
+            <span class="price-right">实付款￥{{ item.price * item.count }}</span>
           </div>
         </div>
         <div class="bottom">
@@ -51,6 +51,8 @@ export default {}
     border-radius: 15px;
     padding: 0 10px;
     padding-bottom: 10px;
+    margin-bottom: 15px;
+
     .name {
       height: 40px;
       line-height: 40px;
@@ -139,19 +141,21 @@ export default {}
         .all-price {
           height: 30px;
           margin-top: 70px;
-          margin-left: 30px;
+          display: flex;
           .price-left {
             float: left;
+            flex: 1;
             margin-left: 10px;
             color: #939393;
             font-weight: 700;
             line-height: 30px;
           }
           .price-right {
+            flex: 1;
+
+            text-align: center;
             float: left;
             line-height: 30px;
-
-            margin-left: 30px;
             color: #070707;
             font-weight: 700;
           }

@@ -23,7 +23,7 @@
           </div>
           <div class="all-price">
             <span class="price-left">总价￥{{ item.price }}</span>
-            <span class="price-right">实付款￥{{ item.price }}</span>
+            <span class="price-right">实付款￥{{ item.price * item.count }}</span>
           </div>
         </div>
         <div class="bottom">
@@ -40,7 +40,7 @@
 export default {}
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .All-content {
   margin-top: 10px;
   padding: 10px;

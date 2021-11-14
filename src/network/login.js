@@ -30,3 +30,31 @@ export function registered(username, password) {
     data
   })
 }
+export function getInfo(username, info) {
+  const data = qs.stringify({
+    username,
+    info
+  })
+  return requestLogin({
+    method: 'post',
+    url: '/info',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    },
+    data
+  })
+}
+export function getName(username, name) {
+  const data = qs.stringify({
+    username,
+    name
+  })
+  return requestLogin({
+    method: 'post',
+    url: '/name',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    },
+    data
+  })
+}
