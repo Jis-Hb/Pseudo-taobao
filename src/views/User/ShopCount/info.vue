@@ -15,6 +15,8 @@
 
 <script>
 import { getInfo } from '../../../network/login'
+import { getCookie, setCookie } from '../../../common/utils'
+
 export default {
   data() {
     return {
@@ -25,11 +27,17 @@ export default {
     GetInfo() {
       console.log(this.info)
       if (this.info !== '') {
-        const MyUsername = localStorage.getItem('username')
-        getInfo(MyUsername, this.info).then(res => {
-          if (res.data.meta.status !== 201) return this.$toast.fail('修改失败')
-
-          localStorage.setItem('info', res.data.data.info)
+        const token = getCookie('token')
+        const MyUsername = getCookie('username')
+        getInfo(MyUsername, this.info, token).then(res => {
+          if (res.data.meta.status !== 201) return this.$toast.fail(res.data.meta.msg)
+          setCookie(
+            {
+              info: res.data.data.info
+            },
+            1
+          )
+          // localStorage.setItem('info', res.data.data.info)
           this.$emit('InfoOver', res.data.data.info)
           this.$toast.success('修改成功')
           this.info = ''

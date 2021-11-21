@@ -1,7 +1,7 @@
 // 防抖函数
 export function debounce(func, delay) {
   let timer = null
-  return function(...args) {
+  return function (...args) {
     if (timer) clearTimeout(timer)
     timer = setTimeout(() => {
       func.apply(this, args)
@@ -31,4 +31,26 @@ export function formatDate(date, fmt) {
 
 function padLeftZero(str) {
   return ('00' + str).substr(str.length)
+}
+
+// 封装Cookie
+// 设置cookie
+export function setCookie(json, time) {
+  var date = new Date(new Date().getTime() + time * 24 * 60 * 60 * 1000).toUTCString()
+  for (var key in json) {
+    document.cookie = key + '=' + json[key] + '; expires=' + date
+  }
+}
+
+// 获取cookie
+export function getCookie(attr) {
+  return document.cookie.match(new RegExp('(^|\\s)' + attr + '=([^;]+)(;|$)'))[2]
+}
+
+// 清除cookie
+export function removeCookie(attr) {
+  var json = {}
+  json[attr] = ''
+  setCookie(json, -1)
+  return true
 }

@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1635851015460') format('truetype');
+  src: url('iconfont.ttf?t=1637312627663') format('truetype');
 }
 
 .iconfont {
@@ -31,12 +31,44 @@
   content: "\e61e";
 }
 
+.icon-fangdajing:before {
+  content: "\e60b";
+}
+
+.icon-fenlei:before {
+  content: "\e658";
+}
+
+.icon-changyonglogo25:before {
+  content: "\e712";
+}
+
 .icon-wodetaobao:before {
   content: "\e6e1";
 }
 
+.icon-fenlei1:before {
+  content: "\e624";
+}
+
+.icon-lingdang-xianxing:before {
+  content: "\e8c0";
+}
+
 .icon-taobaogouwuche_ios:before {
   content: "\e7d2";
+}
+
+.icon-wodetaobao1:before {
+  content: "\e602";
+}
+
+.icon-hongbao:before {
+  content: "\e666";
+}
+
+.icon-jiahao:before {
+  content: "\e62f";
 }
 
 .icon-zuojiantou:before {
@@ -47,23 +79,87 @@
   content: "\e630";
 }
 
+.icon-gouwuche:before {
+  content: "\e612";
+}
+
+.icon-lianxiren:before {
+  content: "\e6d3";
+}
+
+.icon-aite:before {
+  content: "\e649";
+}
+
+.icon-bianzu:before {
+  content: "\e664";
+}
+
+.icon-wodetaobao2:before {
+  content: "\e616";
+}
+
+.icon-fenlei2:before {
+  content: "\e606";
+}
+
+.icon-wode:before {
+  content: "\e608";
+}
+
+.icon-gouwuche1:before {
+  content: "\e609";
+}
+
 .icon-sandian:before {
   content: "\e9b9";
 }
 
 .icon-taobaokefu-01:before {
-  content: "\e602";
-}
-
-.icon-taobaodianpu:before {
   content: "\e603";
 }
 
+.icon-taobaodianpu:before {
+  content: "\e604";
+}
+
+.icon-fenlei3:before {
+  content: "\e638";
+}
+
+.icon-shejiaotubiao-44:before {
+  content: "\e648";
+}
+
+.icon-kabao:before {
+  content: "\e610";
+}
+
+.icon-gengduofenlei:before {
+  content: "\e62a";
+}
+
+.icon-xiaoxi:before {
+  content: "\f01c";
+}
+
+.icon-news:before {
+  content: "\e68e";
+}
+
+.icon-xiangpica:before {
+  content: "\e6d4";
+}
+
+.icon-xiaoxi1:before {
+  content: "\ed21";
+}
+
 .icon-taobaoshoucang:before {
-  content: "\e616";
+  content: "\e617";
 }
 
 .icon-taobaodianpu1:before {
-  content: "\e617";
+  content: "\e618";
 }
 

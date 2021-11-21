@@ -1,7 +1,7 @@
 <template>
   <div class="All-content">
     <div v-if="$store.state.shopObj.pingjia === undefined" class="dpj-content">
-      没有查询到信息！
+      没有查询到信息!
     </div>
     <div class="All-box" v-for="(item, index) in $store.state.shopObj" :key="index">
       <p class="name">
@@ -37,7 +37,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'All',
+  data() {
+    return {
+      infoss: '123'
+    }
+  }
+}
 </script>
 
 <style lang="less">

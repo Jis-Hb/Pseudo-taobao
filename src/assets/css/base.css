@@ -1,20 +1,20 @@
 @import "./normalize.css";
 @import "../../../public/font_ecmk3s68lmg/iconfont.css";
 /*:root -> 获取根元素html*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
 @font-face {
       font-family: 'iconfont';
       src: url('../../../public/font_ecmk3s68lmg/iconfont.ttf?t=1635817391007') format('truetype');
     }
 .icon {
-  width: 1em;
-  height: 1em;
+  width: 2em;
+  height: 2.2em;
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
 }
-
- iconfont {
+ .iconfont {
       font-family: "iconfont" !important;
       font-size: 16px;
       font-style: normal;
@@ -22,14 +22,6 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-:root {
-  --color-text: #666;
-  --color-high-text: #ff5777;
-  --color-tint: #ff8198;
-  --color-background: #fff;
-  --font-size: 14px;
-  --line-height: 1.5;
-}
 
 *,
 *::before,
@@ -45,10 +37,9 @@ body {
   /* 禁止用户鼠标在页面上选中文字/图片等 */
   -webkit-tap-highlight-color: transparent;
   /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
-  background: var(--color-background);
+  background: #f0f0f0;
   color: var(--color-text);
   /* rem vw/vh */
-  width: 100vw;
 }
 
 a {
@@ -77,9 +68,6 @@ a {
 .right {
   float: right;
 }
-body{
-  background-color:#f0f0f0;
-}
 .van-swipe__indicators {
   position: absolute !important;
 
@@ -91,4 +79,7 @@ body{
 }
 .van-overlay van-image-preview__overlay{
  padding: 50px;
+}
+.icon-wodetaobao2:before{
+  font-size: 27px;
 }

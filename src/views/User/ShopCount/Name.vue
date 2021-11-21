@@ -9,6 +9,7 @@
 
 <script>
 import { getName } from '../../../network/login'
+import { setCookie, getCookie } from '../../../common/utils'
 
 export default {
   data() {
@@ -18,11 +19,19 @@ export default {
   },
   methods: {
     GetInfo() {
-      const UserName = localStorage.getItem('username')
+      const UserName = getCookie('username')
+      const token = getCookie('token')
       if (this.Name !== '') {
-        getName(UserName, this.Name).then(res => {
-          if (res.data.meta.status !== 201) return this.$toast.fail('修改失败')
+        getName(UserName, this.Name, token).then(res => {
+          // console.log(res)
+          if (res.data.meta.status !== 201) return this.$toast.fail(res.data.meta.msg)
           localStorage.setItem('name', res.data.data.name)
+          setCookie(
+            {
+              name: res.data.data.name
+            },
+            1
+          )
           this.$emit('NameOver', res.data.data.name)
           this.$toast.success('修改成功')
           this.Name = ''

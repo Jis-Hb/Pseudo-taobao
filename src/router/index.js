@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import home from 'views/home/honme1'
 import category from 'views/category/Category'
 import Shop from 'views/Shop/gouwu'
+import inFor from 'views/infor/infor'
 import home4 from 'views/User/honme4'
 import login from 'views/User/login.vue'
 import registered from 'views/User/registered.vue'
@@ -15,6 +16,7 @@ import df from 'views/User/ShopCount/df.vue'
 import fh from 'views/User/ShopCount/fh.vue'
 import sh from 'views/User/ShopCount/sh.vue'
 import dpj from 'views/User/ShopCount/dpj.vue'
+import { getCookie } from '../common/utils'
 
 Vue.use(VueRouter)
 
@@ -25,6 +27,7 @@ const routes = [
   {
     path: '/home', component: home
   },
+  { path: '/infor', component: inFor },
   { path: '/category', component: category },
   { path: '/cart', component: Shop },
   { path: '/my', component: home4 },
@@ -52,7 +55,7 @@ const router = new VueRouter({
 
 router.beforeEach(function (to, from, next) {
   if (to.path !== '/login' || to.path === '/registered') {
-    const token = localStorage.getItem('token')
+    const token = getCookie('token')
     if (token || to.path === '/registered') {
       next()
     } else {

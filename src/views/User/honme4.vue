@@ -99,12 +99,17 @@
 <script>
 import info from './ShopCount/info.vue'
 import Name from './ShopCount/Name.vue'
+import { getCookie, removeCookie } from '../../common/utils'
+
 export default {
   name: 'haonme4',
   methods: {
     remove() {
       this.$router.push('/login')
-      localStorage.removeItem('token')
+      removeCookie('token')
+      removeCookie('info')
+      removeCookie('username')
+      removeCookie('name')
     },
     moveShop() {
       this.$router.push('/dingdan')
@@ -145,11 +150,14 @@ export default {
     Name
   },
   activated() {
-    const token = localStorage.getItem('token')
-    if (token) {
-      this.username = localStorage.getItem('username')
-      this.Info = localStorage.getItem('info')
-      this.Name = localStorage.getItem('name')
+    const token = getCookie('token')
+
+    if (token !== '') {
+      this.username = getCookie('username')
+      this.Info = getCookie('info')
+      this.Name = getCookie('name')
+    } else {
+      removeCookie('token')
     }
     if (this.$store.state.shopObj.pingjia) {
       this.pingjia = this.$store.state.shopObj.pingjia
