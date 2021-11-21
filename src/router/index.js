@@ -16,7 +16,7 @@ import df from 'views/User/ShopCount/df.vue'
 import fh from 'views/User/ShopCount/fh.vue'
 import sh from 'views/User/ShopCount/sh.vue'
 import dpj from 'views/User/ShopCount/dpj.vue'
-import { getCookie } from '../common/utils'
+// import { getCookie } from '../common/utils'
 
 Vue.use(VueRouter)
 
@@ -55,7 +55,7 @@ const router = new VueRouter({
 
 router.beforeEach(function (to, from, next) {
   if (to.path !== '/login' || to.path === '/registered') {
-    const token = getCookie('token')
+    const token = localStorage.getItem('token')
     if (token || to.path === '/registered') {
       next()
     } else {

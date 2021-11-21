@@ -41,7 +41,6 @@
 
 <script>
 import { postLoginUser } from '../../network/login'
-import { setCookie } from '../../common/utils'
 
 export default {
   name: 'login',
@@ -74,19 +73,11 @@ export default {
       if (!this.checked) return this.$toast.fail('请勾选同意协议并登入')
       postLoginUser(this.users.usernames, this.users.passwords).then(res => {
         if (res.data.meta.status === 201) {
-          setCookie(
-            {
-              token: res.data.data.token,
-              username: res.data.data.username,
-              info: res.data.data.info,
-              name: res.data.data.name
-            },
-            1
-          )
-          // localStorage.setItem('token', res.data.data.token)
-          // localStorage.setItem('username', res.data.data.username)
-          // localStorage.setItem('info', res.data.data.info)
-          // localStorage.setItem('name', res.data.data.name)
+          localStorage.setItem('token', res.data.data.token)
+          localStorage.setItem('username', res.data.data.username)
+          localStorage.setItem('info', res.data.data.info)
+          localStorage.setItem('name', res.data.data.name)
+          sessionStorage.setItem('token', 6666)
           this.$dialog
             .alert({
               title: '登入成功', // 加上标题
