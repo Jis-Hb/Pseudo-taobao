@@ -25,7 +25,7 @@ export default {
         getName(UserName, this.Name, token).then(res => {
           // console.log(res)
           if (res.data.meta.status !== 201) return this.$toast.fail(res.data.meta.msg)
-          localStorage.setItem('name', res.data.data.name)
+          // localStorage.setItem('name', res.data.data.name)
           setCookie(
             {
               name: res.data.data.name
