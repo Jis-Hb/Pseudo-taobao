@@ -1,8 +1,18 @@
 <template>
   <div id="home" class="wrapper">
-    <Nav-Bar class="home-nav">
-      <div slot="center">炸毛小焦</div>
-    </Nav-Bar>
+    <SerchTop class="home-nav ">
+      <div slot="left"><span class="left-Span">签到</span></div>
+      <div slot="centerLeft">订阅</div>
+      <div slot="centerright">推荐</div>
+      <div @click="show = true" slot="right"><span class="right-Span">作者码</span></div>
+      <router-link to="/Serch">
+        <Serch></Serch>
+      </router-link>
+    </SerchTop>
+    <!-- 作者码弹出框 -->
+    <van-dialog v-model="show" title="与作者联系" show-cancel-button>
+      <img class="Myimg" src="@/assets/img/My.jpg" />
+    </van-dialog>
     <Tab-Control
       :titles="Control"
       class="tab2-control"
@@ -31,7 +41,8 @@
 </template>
 
 <script>
-import NavBar from 'components/common/navbar/NavBar'
+import SerchTop from 'components/common/SerchTopBar/SerchTopBar'
+import Serch from 'components/common/SerchTopBar/Serch'
 import HomeSwiper from './childComps/HomeSwiper.vue'
 import RecommendView from './childComps/RecommendView.vue'
 import FeatureView from './childComps/FeatureView.vue'
@@ -46,7 +57,8 @@ import { getHomeMultidata, getHomeGoods } from 'network/home'
 export default {
   name: 'haonme1',
   components: {
-    NavBar,
+    SerchTop,
+    Serch,
     HomeSwiper,
     RecommendView,
     FeatureView,
@@ -70,7 +82,8 @@ export default {
       tabOffsetTop: 0,
       isTabFixed: false,
       saveY: 0,
-      ItemImgListener: null
+      ItemImgListener: null,
+      show: false
     }
   },
   computed: {
@@ -165,18 +178,17 @@ export default {
   padding-bottom: 46px;
   padding: 0;
   height: 100vh;
+  background-color: #eeeeee;
 }
 .wrapper {
 }
 .Swiper {
-  margin: 10px;
+  margin: 2px;
+  margin-bottom: 5px;
   height: 170px;
   overflow: hidden;
 }
 .home-nav {
-  background-color: #fff;
-  color: #000000;
-  border-bottom: 1px solid rgba(204, 204, 204, 0.157);
   position: fixed;
   top: 0;
   left: 0;
@@ -186,18 +198,52 @@ export default {
 
 .tab-control {
   position: sticky;
-  top: 44px;
+  top: 90px;
   background-color: #fff;
 }
 .content {
   /* height: calc(100vh - 93px); */
   position: absolute;
-  top: 54px;
+  top: 91px;
   bottom: 49px;
   left: 0;
   right: 0;
 }
 .tab2-control {
   z-index: 999;
+}
+.left-Span {
+  height: 30px;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: #b6594b;
+}
+.left-Span::before {
+  font-family: 'iconfont';
+  content: '';
+  font-size: 15px;
+  margin-right: 5px;
+  background-color: #f3772c;
+  width: 20px;
+  height: 2px;
+}
+.right-Span {
+  height: 30px;
+  background-color: #b6594b;
+  padding: 5px;
+  padding-left: 8px;
+  border-radius: 15px;
+}
+.right-Span::before {
+  font-family: 'iconfont';
+  content: '';
+  font-size: 15px;
+  margin-right: 5px;
+  background-color: #f3772c;
+  width: 20px;
+  height: 2px;
+}
+.Myimg {
+  height: 400px;
 }
 </style>

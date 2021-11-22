@@ -72,6 +72,7 @@ export default {
       flex: 0.1;
       text-align: center;
       font-size: 20px;
+      color: #ca6b57;
       line-height: 7vw;
       border-right: 1px solid #ccc;
       margin-right: 5px;
@@ -83,7 +84,7 @@ export default {
       height: 100%;
       border: none;
       line-height: 15vw;
-      color: #b8b8b8;
+      color: #000;
     }
   }
 }

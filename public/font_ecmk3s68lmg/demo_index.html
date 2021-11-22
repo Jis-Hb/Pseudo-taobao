@@ -47,10 +47,24 @@
         <li class="dib"><span>Symbol</span></li>
       </ul>
       
+      <a href="https://www.iconfont.cn/manage/index?manage_type=myprojects&projectId=2883337" target="_blank" class="nav-more">查看项目</a>
+      
     </div>
     <div class="tab-container">
       <div class="content unicode" style="display: block;">
           <ul class="icon_lists dib-box">
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe641;</span>
+                <div class="name">签到</div>
+                <div class="code-name">&amp;#xe641;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe607;</span>
+                <div class="name">会员码</div>
+                <div class="code-name">&amp;#xe607;</div>
+              </li>
           
             <li class="dib">
               <span class="icon iconfont">&#xe636;</span>
@@ -92,12 +106,6 @@
               <span class="icon iconfont">&#xe658;</span>
                 <div class="name">分类</div>
                 <div class="code-name">&amp;#xe658;</div>
-              </li>
-          
-            <li class="dib">
-              <span class="icon iconfont">&#xe712;</span>
-                <div class="name">淘宝</div>
-                <div class="code-name">&amp;#xe712;</div>
               </li>
           
             <li class="dib">
@@ -298,7 +306,9 @@
 <pre><code class="language-css"
 >@font-face {
   font-family: 'iconfont';
-  src: url('iconfont.ttf?t=1637312627663') format('truetype');
+  src: url('iconfont.woff2?t=1637559475896') format('woff2'),
+       url('iconfont.woff?t=1637559475896') format('woff'),
+       url('iconfont.ttf?t=1637559475896') format('truetype');
 }
 </code></pre>
           <h3 id="-iconfont-">第二步：定义使用 iconfont 的样式</h3>
@@ -323,6 +333,24 @@
       </div>
       <div class="content font-class">
         <ul class="icon_lists dib-box">
+          
+          <li class="dib">
+            <span class="icon iconfont icon-qiandao"></span>
+            <div class="name">
+              签到
+            </div>
+            <div class="code-name">.icon-qiandao
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon-huiyuanma"></span>
+            <div class="name">
+              会员码
+            </div>
+            <div class="code-name">.icon-huiyuanma
+            </div>
+          </li>
           
           <li class="dib">
             <span class="icon iconfont icon-tuikuan"></span>
@@ -384,15 +412,6 @@
               分类
             </div>
             <div class="code-name">.icon-fenlei
-            </div>
-          </li>
-          
-          <li class="dib">
-            <span class="icon iconfont icon-changyonglogo25"></span>
-            <div class="name">
-              淘宝
-            </div>
-            <div class="code-name">.icon-changyonglogo25
             </div>
           </li>
           
@@ -695,6 +714,22 @@
           
             <li class="dib">
                 <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon-qiandao"></use>
+                </svg>
+                <div class="name">签到</div>
+                <div class="code-name">#icon-qiandao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon-huiyuanma"></use>
+                </svg>
+                <div class="name">会员码</div>
+                <div class="code-name">#icon-huiyuanma</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
                   <use xlink:href="#icon-tuikuan"></use>
                 </svg>
                 <div class="name">退款</div>
@@ -747,14 +782,6 @@
                 </svg>
                 <div class="name">分类</div>
                 <div class="code-name">#icon-fenlei</div>
-            </li>
-          
-            <li class="dib">
-                <svg class="icon svg-icon" aria-hidden="true">
-                  <use xlink:href="#icon-changyonglogo25"></use>
-                </svg>
-                <div class="name">淘宝</div>
-                <div class="code-name">#icon-changyonglogo25</div>
             </li>
           
             <li class="dib">

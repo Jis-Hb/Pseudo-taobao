@@ -46,11 +46,11 @@ export default {
   height: 170px;
   .Swpier-item {
     height: 170px;
-    border-radius: 15px;
+    border-radius: 5px;
 
     .Swiper-img {
       height: 170px;
-      border-radius: 15px;
+      border-radius: 5px;
     }
   }
 }

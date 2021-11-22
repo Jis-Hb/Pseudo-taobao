@@ -28,11 +28,11 @@ export default {
   display: flex;
   text-align: center;
   font-size: 12px;
-  border-radius: 15px;
+  border-radius: 10px;
   border-bottom: 1px solid #eee;
   padding: 5px 10px;
   background-color: #fff;
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 .recommend-item {

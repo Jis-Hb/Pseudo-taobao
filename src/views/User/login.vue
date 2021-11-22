@@ -77,7 +77,6 @@ export default {
           localStorage.setItem('username', res.data.data.username)
           localStorage.setItem('info', res.data.data.info)
           localStorage.setItem('name', res.data.data.name)
-          sessionStorage.setItem('token', 6666)
           this.$dialog
             .alert({
               title: '登入成功', // 加上标题

@@ -27,7 +27,8 @@ export default {
         '/dingdan/sh',
         '/dingdan/dpj',
         '/login',
-        '/registered'
+        '/registered',
+        '/Serch'
       ],
       transitionName: 'slide-left'
     }

@@ -16,6 +16,7 @@ import df from 'views/User/ShopCount/df.vue'
 import fh from 'views/User/ShopCount/fh.vue'
 import sh from 'views/User/ShopCount/sh.vue'
 import dpj from 'views/User/ShopCount/dpj.vue'
+import Serch from 'views/home/Serch/Serch'
 // import { getCookie } from '../common/utils'
 
 Vue.use(VueRouter)
@@ -27,6 +28,7 @@ const routes = [
   {
     path: '/home', component: home
   },
+  { path: '/Serch', component: Serch },
   { path: '/infor', component: inFor },
   { path: '/category', component: category },
   { path: '/cart', component: Shop },

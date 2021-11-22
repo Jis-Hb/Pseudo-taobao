@@ -43,7 +43,7 @@ export default {
 <style lang="less" scoped>
 .feature {
   padding: 10px;
-  margin: 10px;
+  margin: 5px;
   height: 440px;
   background-color: #fff;
   border-radius: 10px;
