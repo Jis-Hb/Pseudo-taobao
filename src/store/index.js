@@ -10,7 +10,14 @@ export default new Vuex.Store({
     dingdan: [],
     gouwuCount: 0,
     shopObj: {},
-    username: ''
+    username: '',
+    // 对话框标头
+    InForName: '',
+    // 对话框信息传入给父组件显示
+    ClickInfo: {
+      content: '',
+      isShow: 0
+    }
   },
   mutations: {
     addCart(state, payload) {
@@ -48,6 +55,14 @@ export default new Vuex.Store({
     },
     username(state, payload) {
       state.username = payload
+    },
+    // 对话框标头
+    InForName(state, payload) {
+      state.InForName = payload
+    },
+    // 对话框信息传入给父组件显示
+    ClickInfo(state, payload) {
+      state.ClickInfo.content = payload
     }
   },
   actions: {},

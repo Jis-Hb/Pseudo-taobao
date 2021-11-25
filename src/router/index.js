@@ -17,6 +17,7 @@ import fh from 'views/User/ShopCount/fh.vue'
 import sh from 'views/User/ShopCount/sh.vue'
 import dpj from 'views/User/ShopCount/dpj.vue'
 import Serch from 'views/home/Serch/Serch'
+import InForClick from 'views/infor/News/infor-Click.vue'
 // import { getCookie } from '../common/utils'
 
 Vue.use(VueRouter)
@@ -30,6 +31,7 @@ const routes = [
   },
   { path: '/Serch', component: Serch },
   { path: '/infor', component: inFor },
+  { path: '/InForClick', component: InForClick },
   { path: '/category', component: category },
   { path: '/cart', component: Shop },
   { path: '/my', component: home4 },

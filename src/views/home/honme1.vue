@@ -11,7 +11,7 @@
     </SerchTop>
     <!-- 作者码弹出框 -->
     <van-dialog v-model="show" title="与作者联系" show-cancel-button>
-      <img class="Myimg" src="@/assets/img/My.jpg" />
+      <img class="Myimg" src="@/assets/img/my1.jpg" />
     </van-dialog>
     <Tab-Control
       :titles="Control"
@@ -213,9 +213,9 @@ export default {
   z-index: 999;
 }
 .left-Span {
-  height: 30px;
-  padding: 5px;
-  border-radius: 15px;
+  padding: 1vw;
+  padding-left: 2vw;
+  border-radius: 6vw;
   background-color: #b6594b;
 }
 .left-Span::before {
@@ -228,11 +228,10 @@ export default {
   height: 2px;
 }
 .right-Span {
-  height: 30px;
   background-color: #b6594b;
-  padding: 5px;
-  padding-left: 8px;
-  border-radius: 15px;
+  padding: 0.6vw;
+  padding-left: 2vw;
+  border-radius: 6vw;
 }
 .right-Span::before {
   font-family: 'iconfont';
@@ -240,8 +239,6 @@ export default {
   font-size: 15px;
   margin-right: 5px;
   background-color: #f3772c;
-  width: 20px;
-  height: 2px;
 }
 .Myimg {
   height: 400px;

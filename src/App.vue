@@ -28,7 +28,8 @@ export default {
         '/dingdan/dpj',
         '/login',
         '/registered',
-        '/Serch'
+        '/Serch',
+        '/InForClick'
       ],
       transitionName: 'slide-left'
     }

@@ -124,6 +124,7 @@ export default {
       })
     }
   },
+
   methods: {
     jis(item) {
       item.count++
@@ -148,15 +149,30 @@ export default {
       this.newinput = true
       this.newtexts = false
     },
-    checkon(item, index) {},
-    checkonn(item) {
-      for (let i = 0; i < item.length; i++) {
-        if (item[i].check === false) {
-          item[i].check = true
-        } else {
-          item[i].check = false
-        }
+    checkon(item, index) {
+      if (item.findIndex(item1 => item1.check === false) === -1) {
+        this.checked = true
+      } else {
+        this.checked = false
       }
+    },
+    checkonn(item) {
+      // console.log(item)
+      // for (let i = 0; i < item.length; i++) {
+      //   if (item[i].check === false) {
+      //     item[i].check = true
+      //   } else {
+      //     item[i].check = false
+      //   }
+      // }
+      item.forEach((item, index) => {
+        console.log(item.check)
+        if (this.checked === true) {
+          item.check = true
+        } else {
+          item.check = false
+        }
+      })
     },
     jiesuan() {
       this.shubmits = this.submit

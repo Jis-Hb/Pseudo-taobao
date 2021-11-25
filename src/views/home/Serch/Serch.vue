@@ -19,7 +19,7 @@
     <div slot="content" v-if="inputValue === '' && !isclickSerch">
       <div class="sousuo">
         <div class="Top-info">
-          <span class="info1">搜索发现</span>
+          <span class="info1">测试关键词~~数据暂少</span>
           <span class="iconfont info2">&#xe9b9;</span>
         </div>
         <div class="center-info">
@@ -33,12 +33,11 @@
       <ul class="Serch-info-Ul">
         <li
           @click="SearchForGoods(item.iid)"
-          v-for="(item, index) in Serch"
+          v-for="(item, index) in sech"
           :key="index"
           class="Serch-info-li"
-        >
-          {{ item.title }}
-        </li>
+          v-html="item.Ref"
+        ></li>
       </ul>
     </div>
     <div slot="content" v-if="isclickSerch">
@@ -88,6 +87,17 @@ export default {
     Serch() {
       return this.SerchList.filter((item, index) => {
         return item.title.indexOf(this.inputValue) !== -1
+      })
+    },
+    sech() {
+      return this.Serch.map((item, key) => {
+        const Obj = {}
+        Obj.Ref = item.title.replace(
+          this.inputValue,
+          `<span style="color:#ef6e35">${this.inputValue}</span>`
+        )
+        Obj.iid = item.iid
+        return Obj
       })
     }
   },
@@ -152,12 +162,15 @@ export default {
       .input {
         flex: 0.9;
         height: 100%;
+        width: 100%;
         border: none;
         color: rgba(0, 0, 0, 0.767);
       }
       .clear {
-        margin-top: 1vw;
-        margin-right: 8vw;
+        margin-top: 0.4vw;
+        margin-right: 3vw;
+        background-color: #fff;
+        z-index: 999;
         color: #aeaeae;
         transform: rotate(45deg);
         font-size: 5vw;
@@ -249,7 +262,7 @@ export default {
         }
       }
       .cfav {
-        margin-left: 3vw;
+        margin-left: 1vw;
         color: #979797;
       }
     }

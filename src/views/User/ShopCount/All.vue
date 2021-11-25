@@ -1,7 +1,7 @@
 <template>
   <div class="All-content">
     <div v-if="$store.state.shopObj.pingjia === undefined" class="dpj-content">
-      没有查询到信息!
+      {{ $route.path === '/dingdan/dpj' ? '没有查询到待评价信息' : '您没有购买任何商品' }}
     </div>
     <div class="All-box" v-for="(item, index) in $store.state.shopObj" :key="index">
       <p class="name">
@@ -90,30 +90,30 @@ export default {
       }
     }
     .center {
-      padding: 10px;
+      padding: 2.6vw;
 
       .left {
         float: left;
-        width: 100px;
-        height: 100px;
-        margin-top: 5px;
+        width: 26vw;
+        height: 26vw;
+        margin-top: 1.3vw;
         img {
           width: 100%;
           height: 100%;
-          border-radius: 15px;
+          border-radius: 4vw;
         }
       }
       .right {
         float: right;
-        width: 210px;
-        padding: 10px 0;
+        width: 56vw;
+        padding: 2.6vw 0;
         .title {
           .title-left {
             float: left;
-            width: 170px;
+            width: 45vw;
             overflow: hidden;
-            height: 20px;
-            line-height: 20px;
+            height: 5.3vw;
+            line-height: 5.3vw;
             text-overflow: ellipsis;
             white-space: nowrap;
             color: #111111;
@@ -127,42 +127,42 @@ export default {
         }
         .desc {
           .desc-left {
-            margin-top: 10px;
+            margin-top: 2.6vw;
             float: left;
-            width: 140px;
+            width: 40vw;
             overflow: hidden;
-            height: 20px;
-            line-height: 20px;
+            height: 5vw;
+            line-height: 5vw;
             font-size: 13px;
             color: #9a9a9a;
             font-weight: 600;
           }
           .desc-right {
-            margin-top: 13px;
-            font-size: 13px;
+            margin-top: 3vw;
+            margin-left: 4vw;
+            font-size: 3.4vw;
             float: right;
             color: #9a9a9a;
             font-weight: 600;
           }
         }
         .all-price {
-          height: 30px;
-          margin-top: 70px;
+          height: 7vw;
+          margin-top: 18.6vw;
           display: flex;
           .price-left {
             float: left;
             flex: 1;
-            margin-left: 10px;
+            margin-left: 2vw;
             color: #939393;
             font-weight: 700;
-            line-height: 30px;
+            line-height: 8vw;
           }
           .price-right {
             flex: 1;
-
             text-align: center;
             float: left;
-            line-height: 30px;
+            line-height: 8vw;
             color: #070707;
             font-weight: 700;
           }
@@ -170,33 +170,33 @@ export default {
       }
     }
     .bottom {
-      margin-top: 130px;
+      margin-top: 34.6vw;
       width: 100%;
-      line-height: 30px;
-      height: 30px;
+      line-height: 8vw;
+      height: 8vw;
       .span1 {
         float: left;
         color: #9c9c9c;
       }
       .span3 {
         float: left;
-        margin-left: 90px;
-        padding: 0 10px;
+        margin-left: 20vw;
+        padding: 0 2.6vw;
         text-align: center;
         color: #070707;
         font-weight: 500;
-        font-size: 18px;
+        font-size: 4.8vw;
         border: 1px solid #d2d2d2;
-        border-radius: 30px;
+        border-radius: 8vw;
       }
       .span4 {
         float: right;
-        padding: 0 20px;
-        margin-left: 10px;
+        padding: 0 5.3vw;
+        margin-left: 0.2666rem;
         text-align: center;
         border: 1px solid #d68365;
         color: #d68365;
-        border-radius: 30px;
+        border-radius: 8vw;
       }
     }
   }

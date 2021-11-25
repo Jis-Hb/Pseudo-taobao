@@ -60,11 +60,11 @@ export default {
 
   .left {
     align-self: flex-start;
-    width: 70px;
+    width: 23vw;
   }
   .right {
     align-self: flex-end;
-    width: 80px;
+    width: 23vw;
   }
 }
 </style>

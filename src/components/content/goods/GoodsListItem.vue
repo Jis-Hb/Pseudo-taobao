@@ -7,8 +7,8 @@
 
       <div class="goodsitemcount">
         <p>{{ goodsItem.title }}</p>
-        <span class="price">${{ goodsItem.price }}</span>
-        <span class="collect"><span>♥</span>{{ goodsItem.cfav }}</span>
+        <span class="price"><span class="price-left">￥</span>{{ goodsItem.price }}</span>
+        <span class="collect">{{ goodsItem.cfav }}<span class="collect-Right">人付款</span></span>
       </div>
     </div>
   </div>
@@ -80,16 +80,22 @@ export default {
         margin-bottom: 3px;
       }
       .price {
-        color: red;
-        padding: 0 10px;
-        font-size: 16px;
-        font-weight: 700;
+        margin-left: -6vw;
+        padding-right: 4vw;
+        font-weight: 500;
+        font-size: 5vw;
+        color: #e95825;
+
+        .price-left {
+          font-size: 12px !important;
+          color: #e95825;
+        }
       }
       .collect {
-        color: rgb(42, 9, 133);
+        color: #9f9f9f;
         span {
           font-size: 17px;
-          color: rgb(209, 51, 51);
+          color: #9f9f9f;
         }
       }
     }

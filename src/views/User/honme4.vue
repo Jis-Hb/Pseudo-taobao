@@ -286,7 +286,7 @@ body {
         font-weight: 600;
         span {
           flex: 1;
-          padding: 0 10px;
+          padding: 0 1vw;
           color: #6a6a6a;
           font-weight: 300;
           border-right: 1px solid #f6f6f6;
