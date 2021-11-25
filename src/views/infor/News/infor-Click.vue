@@ -24,7 +24,7 @@
             alt=""
           />
           <div :class="item.id === 1 ? 'Rightjiantou' : 'Leftjiantou'"></div>
-          <span :class="item.id === 1 ? 'Rightinfo' : 'Leftinfo'">{{ item.content }}</span>
+          <p :class="item.id === 1 ? 'Rightinfo' : 'Leftinfo'">{{ item.content }}</p>
         </div>
       </transition-group>
       <!--  <transition-group name="van-slide-up">
@@ -78,8 +78,12 @@ export default {
     Send() {
       if (this.BottomVal !== '') {
         this.Muisc()
-
         this.InfoList.push({ id: 1, content: this.BottomVal })
+        this.$nextTick(() => {
+          const msg = document.querySelector('.contentInfo')
+          msg.scrollTop = msg.scrollHeight
+          this.$runAnimation(msg.scrollTop)
+        })
       }
       this.BottomVal = ''
     },
@@ -128,8 +132,12 @@ export default {
   display: flex;
   flex-direction: column;
   .NavBar {
-    background-color: rgba(236, 235, 233, 0.815);
+    position: absolute;
+    top: 0;
+    width: 100% !important;
+    background-color: rgba(236, 235, 233, 0.945);
     border-bottom: 1px solid #e2e2e2;
+    z-index: 9999;
     .NavBarCenter {
       color: #24211c;
       font-size: 4vw;
@@ -145,13 +153,14 @@ export default {
     display: flex;
     flex-direction: column-reverse;
     overflow: scroll;
+    padding-bottom: 15vw;
+    padding-top: 15vw;
+
     .Left {
       display: flex;
-      align-items: center;
+      align-items: top;
       justify-content: start;
       padding: 2vw;
-      width: 100%;
-      height: 20vw;
       .Leftimg {
         width: 13vw;
         height: 13vw;
@@ -162,34 +171,40 @@ export default {
         display: flex;
         align-items: center;
         padding: 0 2vw;
-        height: 70%;
+        max-width: 70%;
+        padding: 2vw;
+        overflow: hidden;
+        white-space: normal;
+        word-break: break-all;
         border-radius: 2vw;
+        color: #242424;
+        font-weight: 500;
       }
       .Leftjiantou {
         height: 0;
         border: 2vw solid;
         border-color: transparent #fff transparent transparent;
         position: relative;
-        top: -10%;
-        right: 0%;
+        top: 0%;
+        right: -0.7%;
       }
     }
     .Right {
       display: flex;
-      align-items: center;
+      align-items: top;
       flex-direction: row-reverse;
       justify-content: end;
       padding: 2vw;
-      width: 100%;
-      height: 20vw;
       transition: all 1s;
-
       .Rightinfo {
-        background-color: #fff;
+        background-color: #9eea6a;
         display: flex;
         align-items: center;
         padding: 0 2vw;
-        height: 70%;
+        max-width: 60%;
+        overflow: hidden;
+        white-space: normal;
+        word-break: break-all;
         border-radius: 2vw;
         color: #242424;
         font-weight: 500;
@@ -202,17 +217,18 @@ export default {
       .Rightjiantou {
         height: 0;
         border: 2vw solid;
-        border-color: transparent transparent transparent #fff;
+        border-color: transparent transparent transparent #9eea6a;
         position: relative;
-        top: -10%;
-        left: 0%;
+        top: 0%;
+        left: -0.7%;
       }
     }
   }
   .BottomInFo {
+    position: absolute;
+    bottom: 0;
     border-top: 1px solid #e2e2e2;
-    background-color: rgba(241, 239, 240, 0.863);
-
+    background-color: rgba(241, 239, 240, 0.945);
     display: flex;
     flex-direction: row !important;
     align-items: center !important;
@@ -231,7 +247,7 @@ export default {
       padding: 0 2vw;
     }
     .btn {
-      background-color: #ededed;
+      background-color: rgba(241, 239, 240, 0.301);
       border: none;
       width: 10vw;
       height: 70%;
@@ -239,7 +255,6 @@ export default {
       border-radius: 10vw;
     }
     .btn:active {
-      background-color: #e9e8e8;
     }
   }
 }
