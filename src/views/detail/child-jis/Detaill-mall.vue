@@ -1,7 +1,12 @@
 <template>
   <div class="mill-content">
     <van-goods-action class="jis">
-      <van-goods-action-icon icon="chat-o" text="客服" color="#ee0a24" />
+      <van-goods-action-icon
+        @click="$router.push('/infor')"
+        icon="chat-o"
+        text="客服"
+        color="#ee0a24"
+      />
 
       <van-goods-action-icon
         :badge="$store.state.gouwuCount"
