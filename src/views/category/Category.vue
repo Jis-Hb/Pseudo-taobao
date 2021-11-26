@@ -72,8 +72,8 @@ export default {
   background-color: #fff;
 
   .Cate-Top {
-    background-color: #fff;
-    color: #000000;
+    background-color: #ca6b57;
+    color: #fff;
     position: absolute;
     top: 0;
     z-index: 666;

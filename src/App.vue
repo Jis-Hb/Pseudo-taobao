@@ -29,7 +29,9 @@ export default {
         '/login',
         '/registered',
         '/Serch',
-        '/InForClick'
+        '/InForClick',
+        '/setting',
+        '/Change-info'
       ],
       transitionName: 'slide-left'
     }

@@ -60,7 +60,7 @@ export default {
 }
 .clickName {
   font-weight: 700;
-  border-left: 5px solid #f01326;
+  border-left: 5px solid #ff9900;
   background-color: #fff;
 }
 ::-webkit-scrollbar {

@@ -38,7 +38,13 @@
 
     <div class="BottomInFo">
       <span class="iconfont rightIcon">&#xe62f;</span>
-      <input @keyup.enter="Send" v-model.trim="BottomVal" class="input" type="text" />
+      <input
+        @keyup.enter="Send"
+        @click="ofSetTop"
+        v-model.trim="BottomVal"
+        class="input"
+        type="text"
+      />
       <button class="btn" @click="Send">发送</button>
     </div>
   </div>
@@ -71,6 +77,7 @@ export default {
       this.$store.state.ClickInfo.isShow = this.$store.state.ClickInfo.isShow + 1
     }
   },
+  mounted() {},
   methods: {
     back() {
       this.$router.back()
@@ -82,7 +89,6 @@ export default {
         this.$nextTick(() => {
           const msg = document.querySelector('.contentInfo')
           msg.scrollTop = msg.scrollHeight
-          this.$runAnimation(msg.scrollTop)
         })
       }
       this.BottomVal = ''
@@ -122,7 +128,8 @@ export default {
       this.$refs.muisc.pause()
       this.$refs.muisc.currentTime = 0
       this.$refs.muisc.play()
-    }
+    },
+    ofSetTop() {}
   }
 }
 </script>
@@ -131,6 +138,7 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   .NavBar {
     position: absolute;
     top: 0;
@@ -153,7 +161,6 @@ export default {
     display: flex;
     flex-direction: column-reverse;
     overflow: scroll;
-    padding-bottom: 15vw;
     padding-top: 15vw;
 
     .Left {
@@ -225,13 +232,11 @@ export default {
     }
   }
   .BottomInFo {
-    position: absolute;
-    bottom: 0;
     border-top: 1px solid #e2e2e2;
     background-color: rgba(241, 239, 240, 0.945);
     display: flex;
-    flex-direction: row !important;
-    align-items: center !important;
+    flex-direction: row;
+    align-items: center;
     height: 15vw;
     padding: 0 3vw;
     .rightIcon {
@@ -246,6 +251,7 @@ export default {
       margin: 0 3vw;
       padding: 0 2vw;
     }
+
     .btn {
       background-color: rgba(241, 239, 240, 0.301);
       border: none;

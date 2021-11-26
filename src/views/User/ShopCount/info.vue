@@ -7,9 +7,14 @@
       v-model="info"
       label="个性签名"
     />
-    <van-button @click="GetInfo" class="btn" color="linear-gradient(to right, #ff6034, #ee0a24)">
-      确认
-    </van-button>
+    <div>
+      <van-button @click="NoBtn" class="NoBtn">
+        取消
+      </van-button>
+      <van-button @click="GetInfo" class="btn" color="linear-gradient(to right, #ff6034, #ee0a24)">
+        确认
+      </van-button>
+    </div>
   </div>
 </template>
 
@@ -31,13 +36,16 @@ export default {
         getInfo(MyUsername, this.info, token).then(res => {
           if (res.data.meta.status !== 201) return this.$toast.fail(res.data.meta.msg)
           localStorage.setItem('info', res.data.data.info)
-          this.$emit('InfoOver', res.data.data.info)
+          this.$emit('NameOver', res.data.data.info)
           this.$toast.success('修改成功')
           this.info = ''
         })
       } else {
         this.$toast.fail('不能输入空格！')
       }
+    },
+    NoBtn() {
+      this.$emit('NameOver')
     }
   }
 }
@@ -45,17 +53,23 @@ export default {
 
 <style lang="less" scoped>
 .info {
-  background-color: #eee;
+  background-color: #fff;
 
-  padding: 50px;
+  padding: 2vw;
   text-align: center;
   .input {
-    border-radius: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 2vw;
   }
   .btn {
-    width: 50vw;
+    width: 30vw;
     border-radius: 10px;
+  }
+  .NoBtn {
+    width: 30vw;
+    border-radius: 10px;
+    background-color: #fff !important;
+    color: #000 !important;
+    margin-right: 2vw;
   }
 }
 </style>

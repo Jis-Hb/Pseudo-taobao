@@ -18,6 +18,8 @@ import sh from 'views/User/ShopCount/sh.vue'
 import dpj from 'views/User/ShopCount/dpj.vue'
 import Serch from 'views/home/Serch/Serch'
 import InForClick from 'views/infor/News/infor-Click.vue'
+import setting from 'views/User/ShopCount/setting'
+import Changeinfo from 'views/User/ShopCount/Change-info'
 // import { getCookie } from '../common/utils'
 
 Vue.use(VueRouter)
@@ -35,6 +37,8 @@ const routes = [
   { path: '/category', component: category },
   { path: '/cart', component: Shop },
   { path: '/my', component: home4 },
+  { path: '/setting', component: setting },
+  { path: '/Change-info', component: Changeinfo },
   { path: '/login', component: login },
   { path: '/registered', component: registered },
   { path: '/detail/:iid', component: Detail },
