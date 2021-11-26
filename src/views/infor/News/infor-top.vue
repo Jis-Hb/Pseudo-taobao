@@ -1,8 +1,8 @@
 <template>
   <div class="infor-top">
     <div class="info">
-      <span>消息(0)</span>
-      <span class="weidu">清除未读</span>
+      <span>消息({{ $store.state.ClickInfo.isShow }})</span>
+      <span class="weidu" @click="removeInfoCount">清除未读</span>
       <span class="img"></span>
     </div>
     <div class="serch">
@@ -14,7 +14,12 @@
 
 <script>
 export default {
-  name: 'inforTop'
+  name: 'inforTop',
+  methods: {
+    removeInfoCount() {
+      this.$store.state.ClickInfo.isShow = 0
+    }
+  }
 }
 </script>
 

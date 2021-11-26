@@ -138,7 +138,7 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   .NavBar {
     position: absolute;
     top: 0;
@@ -162,6 +162,7 @@ export default {
     flex-direction: column-reverse;
     overflow: scroll;
     padding-top: 15vw;
+    padding-bottom: 15vw;
 
     .Left {
       display: flex;
@@ -207,7 +208,7 @@ export default {
         background-color: #9eea6a;
         display: flex;
         align-items: center;
-        padding: 0 2vw;
+        padding: 2vw 2vw;
         max-width: 60%;
         overflow: hidden;
         white-space: normal;
@@ -232,6 +233,8 @@ export default {
     }
   }
   .BottomInFo {
+    position: absolute;
+    bottom: 0;
     border-top: 1px solid #e2e2e2;
     background-color: rgba(241, 239, 240, 0.945);
     display: flex;

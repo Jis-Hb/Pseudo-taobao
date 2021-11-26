@@ -57,23 +57,16 @@ export default {
   background-color: #fff;
   .content-Top {
     height: 7vh;
-    padding: 10px;
-    .span1 {
-      font-size: 20px;
-      margin-right: 10px;
-    }
-    .span2 {
-      font-size: 20px;
-      margin-right: 10px;
-    }
-    .span3 {
-      font-size: 20px;
-      margin-right: 10px;
-    }
+    padding: 2.6vw;
+
+    .span1,
+    .span2,
+    .span3,
     .span4 {
       font-size: 20px;
       margin-right: 10px;
     }
+
     .span5 {
       float: right;
       font-size: 20px;
@@ -96,6 +89,7 @@ export default {
     .RightInfo {
       flex: 0.9;
       padding: 5px 10px;
+      width: 70%;
       .p1 {
         color: #000;
         font-weight: 600;
@@ -103,6 +97,10 @@ export default {
       .p2 {
         margin-top: 10px;
         color: #9a9a9a;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 80%;
       }
       .biaoji {
         width: 5vw;

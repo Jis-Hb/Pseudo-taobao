@@ -1,6 +1,11 @@
 <template>
   <div class="new-Life">
     <div class="top">
+      <van-notice-bar
+        class="inform"
+        left-icon="volume-o"
+        text="完成了基本的淘宝布局，实现仿真购买体验，模拟支付等一系列功能，由于后端技术薄弱只实现了注册、登入，和名称、个性签名等修改，商品数据不是本人的后台数据"
+      />
       <p class="top-content">亲，欢迎登录</p>
       <span class="top-span1"
         >没有账户?
@@ -135,6 +140,11 @@ export default {
     flex-direction: column;
     justify-content: center;
     padding-bottom: 5vw;
+    box-sizing: border-box;
+    .inform {
+      height: 10vw;
+      border-radius: 5vw;
+    }
     .top-content {
       font-size: 8vw;
       color: #000;

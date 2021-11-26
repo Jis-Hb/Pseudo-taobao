@@ -33,6 +33,35 @@
       </div>
     </div>
     <van-submit-bar class="tijiao" :price="Price" button-text="提交订单" @submit="tijiao" />
+
+    <transition name="van-fade">
+      <div ref="zhezhaoRef" class="zhezhao" @click="zhezhaoClick($event)" v-if="show">
+        <!-- 验证密码 -->
+        <!-- 密码输入框 -->
+        <div class="div">
+          <van-password-input
+            class="PaawordInput"
+            :gutter="5"
+            :value="value"
+            :focused="showKeyboard"
+            @focus="showKeyboard = true"
+            :show="showKeyboard"
+            ref="InputRef"
+          />
+        </div>
+
+        <van-number-keyboard
+          ref="NumberRef"
+          class="numberkeyboard"
+          v-model="value"
+          @input="Over"
+          @hide="show = false"
+          :show="showKeyboard"
+          @blur="showKeyboard = false"
+        />
+        <!-- 数字键盘 -->
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -44,7 +73,10 @@ export default {
   data() {
     return {
       shopObj: {},
-      homeCount: 0
+      homeCount: 0,
+      value: '',
+      showKeyboard: false,
+      show: false
     }
   },
   components: {
@@ -65,19 +97,41 @@ export default {
     shouhuodizhi() {
       this.$router.push('/pushdizhi')
     },
+    zhezhaoClick(ev) {
+      if (ev.target === this.$refs.zhezhaoRef) {
+        this.show = false
+      }
+    },
+    showON(e) {
+      console.log(e)
+    },
+    Over(e) {
+      setTimeout(() => {
+        if (this.value === '123456') {
+          this.show = false
+          this.shopObj = this.$store.state.submitList
+          this.shopObj.oldPrice = this.Price
+          this.homeCount += 1
+          // this.shopObj.shouhuo = this.homeCount
+          this.shopObj.pingjia = this.homeCount
+          console.log(this.shopObj)
+          this.$store.commit('shopObj', this.shopObj)
+          this.$router.push('/my')
+          this.$toast.success('支付成功')
+          this.$router.push('/my')
+        } else if (this.value.length === 6 && this.value !== '123456') {
+          this.show = false
+          this.value = ''
+          this.$toast.fail('密码错误')
+        }
+      }, 0)
+    },
     tijiao() {
+      this.show = true
+      this.$toast.fail('密码123456')
       if (this.$store.state.dingdan.id !== undefined) {
-        this.shopObj = this.$store.state.submitList
-        this.shopObj.oldPrice = this.Price
-        this.homeCount += 1
-        // this.shopObj.shouhuo = this.homeCount
-        this.shopObj.pingjia = this.homeCount
-        console.log(this.shopObj)
-        this.$store.commit('shopObj', this.shopObj)
-        this.$router.push('/my')
-        this.$toast.success('支付成功')
-        this.$router.push('/my')
       } else {
+        this.show = false
         this.$toast.fail('请添加地址')
       }
     }
@@ -227,5 +281,26 @@ export default {
       }
     }
   }
+}
+.zhezhao {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(246, 246, 246, 0.966);
+  z-index: 99999;
+  .PaawordInput {
+    position: absolute;
+    top: 25vw;
+    z-index: 99999;
+  }
+  .numberkeyboard {
+    position: absolute;
+    bottom: 0;
+    z-index: 99999;
+  }
+}
+.van-password-input__security li {
+  background-color: rgba(0, 0, 0, 0.226);
 }
 </style>

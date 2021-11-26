@@ -4,6 +4,7 @@
       <div class="contner">
         <div class="box-left">
           <img
+            @onClose="ImagePreview"
             src="http://img.alicdn.com/sns_logo/i2/O1CN01FCs34N28i1EcUFY3J_!!0-mytaobao.jpg_790x10000.jpg"
             alt=""
           />
@@ -121,7 +122,8 @@ export default {
     },
     moveShop() {
       this.$router.push('/dingdan')
-    }
+    },
+    ImagePreview() {}
     // offf() {
     //   this.infoshow = true
     // },
@@ -235,16 +237,16 @@ export default {
         justify-content: center;
         align-items: center;
         width: 30%;
-        height: 40vw;
+        height: 45vw;
         text-align: center;
         img {
-          width: 80%;
-          height: 60%;
+          width: 75%;
+          height: 50%;
           border-radius: 75px;
         }
       }
       .box-right {
-        height: 40vw;
+        height: 45vw;
         width: 70%;
         display: flex;
         flex-direction: column;
@@ -304,15 +306,16 @@ export default {
       justify-content: space-between;
       height: 15vw;
       color: #fdf8fc;
+      margin-top: 2vw;
       .TopSpan {
         display: flex;
-        font-size: 7vw;
+        font-size: 5vw;
         flex-direction: column;
         align-items: center;
         color: #fdf8fc;
         .onSpan {
           margin-top: 2vw;
-          font-size: 4vw;
+          font-size: 3.5vw;
         }
       }
     }
@@ -336,11 +339,11 @@ export default {
           float: left;
           color: #080808;
           font-weight: 600;
-          font-size: 4vw;
+          font-size: 3.5vw;
         }
         .info-test-bb {
           float: right;
-          font-size: 4vw;
+          font-size: 3.5vw;
           color: #979797;
         }
         .info-test-bb::after {
@@ -352,8 +355,8 @@ export default {
       }
       .info-logo {
         display: flex;
-        height: 17.3vw;
-        line-height: 17.3vw;
+        height: 15.3vw;
+        line-height: 15.3vw;
         .login-5 {
           flex: 1;
           position: relative;
@@ -375,9 +378,8 @@ export default {
             }
           }
           .logo1 {
-            font-size: 28px;
             width: 100%;
-            height: 25px;
+            height: 5.6vw;
             float: left;
             line-height: 25px;
             margin-top: 5px;
@@ -385,10 +387,10 @@ export default {
           }
           span {
             text-align: center;
-            font-size: 15px;
+            font-size: 3.5vw;
             width: 100%;
-            height: 40px;
-            line-height: 40px;
+            height: 8vw;
+            line-height: 8vw;
             float: left;
             color: #717171;
           }
@@ -397,17 +399,23 @@ export default {
     }
     .boom2-box {
       .vantput {
-        padding: 2.1vw;
-        margin-top: 6.6vw;
+        padding: 1vw;
+        margin-top: 2vw;
         border-radius: 4vw;
         height: 40vw;
+
         .vant-1 {
           padding: 5.3vw 4vw 14vw 4vw;
+          font-size: 3.5vw;
+
           .info {
             margin-top: 5px;
+            font-size: 3.5vw;
+
             span {
               color: #f10a87;
               font-weight: 500;
+              font-size: 3.5vw;
             }
           }
         }
@@ -415,15 +423,20 @@ export default {
       .tuichu {
         margin-top: 15px;
         border-radius: 15px;
+        font-size: 3.5vw;
         .tuichubtn {
           border-radius: 15px;
           background-color: #1d82fe;
           color: #fff;
           height: 35px;
-          width: 85px;
+          width: 22.6vw;
+          font-size: 3.5vw;
         }
       }
     }
   }
+}
+.van-cell--large .van-cell__title {
+  font-size: 3.5vw;
 }
 </style>

@@ -22,7 +22,9 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-
+.van-toast {
+  z-index: 99999 !important;
+}
 *,
 *::before,
 *::after {

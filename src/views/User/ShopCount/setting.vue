@@ -14,7 +14,7 @@
           />
         </div>
         <div class="info">
-          <p class="p1">11{{ username }}</p>
+          <p class="p1">{{ username }}</p>
           <p class="p2">炸毛账号:&nbsp;{{ name }}</p>
         </div>
       </div>
@@ -61,6 +61,7 @@ export default {
 .contener {
   width: 100%;
   height: 100vh;
+  background-color: #fff;
   .NavBar1 {
     background-color: #ca6b57 !important;
     color: #fff !important;
@@ -71,7 +72,7 @@ export default {
     background-color: #fff;
     .infor {
       height: 25vw;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #f4f4f4;
       display: flex;
       .imgs {
         width: 25vw;
@@ -110,7 +111,7 @@ export default {
     .tuichu {
       position: relative;
       bottom: 0;
-      margin-top: 15px;
+      border-bottom: 1px solid #f4f4f4;
       .tuichubtn {
         border-radius: 15px;
         background-color: #1d82fe;
